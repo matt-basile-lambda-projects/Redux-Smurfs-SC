@@ -26,6 +26,7 @@ handleChanges = e =>{
 addNewSmurf = e =>{
     e.preventDefault();
     this.props.addSmurf(this.state.newSmurf);
+    e.target.reset();
 }
 
 
