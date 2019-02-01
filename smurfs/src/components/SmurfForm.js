@@ -17,12 +17,17 @@ handleChanges = e =>{
         [e.target.name]: e.target.value
     }})
 }
+addNewSmurf = e =>{
+    e.preventDefault();
+    this.props.addSmurf(this.state.newSmurf);
+}
+
 
   render() {
     return (
       <div>
         <h1>Smurf Form</h1>
-        <form onSubmit={this.props.addSmurf}>
+        <form onSubmit={e =>this.addNewSmurf(e)}>
             <input onChange={this.handleChanges} type="text" name="name" placeholder="What's this Smurfs Name?"/>
             <input onChange={this.handleChanges} type="number" name="age" placeholder="How Old is this Smurf?"/>
             <input onChange={this.handleChanges} type="number" name="height" placeholder="How Tall is this Smurf?"/>
