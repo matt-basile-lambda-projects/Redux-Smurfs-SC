@@ -7,7 +7,7 @@ constructor(props){
         newSmurf:{
             name: '',
             age:null,
-            height: null,
+            height: '',
         }
     }
 }
@@ -16,6 +16,12 @@ handleChanges = e =>{
         ...this.state.newSmurf,
         [e.target.name]: e.target.value
     }})
+    if(e.target.name === 'height'){
+        this.setState({newSmurf:{
+            ...this.state.newSmurf,
+            height: `${e.target.value}cm`
+        }})
+    }
 }
 addNewSmurf = e =>{
     e.preventDefault();
@@ -30,7 +36,7 @@ addNewSmurf = e =>{
         <form onSubmit={e =>this.addNewSmurf(e)}>
             <input onChange={this.handleChanges} type="text" name="name" placeholder="What's this Smurfs Name?"/>
             <input onChange={this.handleChanges} type="number" name="age" placeholder="How Old is this Smurf?"/>
-            <input onChange={this.handleChanges} type="number" name="height" placeholder="How Tall is this Smurf?"/>
+            <input onChange={this.handleChanges} type="text" name="height" placeholder="How Tall is this Smurf?"/>
             <button>Submit Smurf</button>
         </form>
       </div>
