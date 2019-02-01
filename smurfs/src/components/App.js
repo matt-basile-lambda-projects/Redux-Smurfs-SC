@@ -74,16 +74,17 @@ addNewSmurf = e =>{
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <ul>
+        <div className="smurf-wrapper">
           {this.props.smurfs.map(smurf=>{
-            return <div key={smurf.id}>
-                    <img src={SmurfHaus}/>
+            return <div className="smurf-card" key={smurf.id}>
                     <h4>{smurf.name}</h4>
-                    <button onClick={e =>this.populateSmurf(e, smurf.id)}>Update Smurf</button>  
-                    <button onClick={(e)=> this.deleteASmurf(e, smurf.id)}>X</button>
+                    <div className="smurf-btns">
+                    <button className="update" onClick={e =>this.populateSmurf(e, smurf.id)}>Update Smurf</button>  
+                    <button className="delete" onClick={(e)=> this.deleteASmurf(e, smurf.id)}>Delete Smurf</button>
+                    </div>
                   </div>
           })}
-        </ul>
+        </div>
         <SmurfForm
         addNewSmurf={this.addNewSmurf}
         updateASmurf={this.updateASmurf}
